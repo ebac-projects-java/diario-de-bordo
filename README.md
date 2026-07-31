@@ -1,36 +1,117 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Diário de Bordo
 
-## Getting Started
+Aplicação desenvolvida como atividade prática da EBAC utilizando **Next.js 16** e os conceitos de **Progressive Web App (PWA)**.
 
-First, run the development server:
+## 🔗 Links
+
+- **Repositório:** https://github.com/ebac-projects-java/diario-de-bordo
+
+## 📋 Descrição
+
+O Diário de Bordo é uma aplicação web que permite registrar atividades diárias por meio de título, descrição e data. Os registros são armazenados localmente utilizando **localStorage**, garantindo persistência dos dados mesmo após atualizar a página.
+
+Além disso, o projeto foi configurado como um **Progressive Web App (PWA)**, permitindo instalação no dispositivo, funcionamento offline e uma experiência semelhante à de um aplicativo nativo.
+
+## 🚀 Funcionalidades
+
+- Criar novas entradas do diário
+- Listar todas as entradas cadastradas
+- Remover entradas
+- Persistência de dados utilizando `localStorage`
+- Funcionamento offline
+- Instalação como aplicativo (PWA)
+- Interface responsiva para dispositivos móveis e desktops
+
+## 🛠️ Tecnologias utilizadas
+
+- Next.js 16
+- React 19
+- TypeScript
+- Progressive Web App (PWA)
+- Service Worker
+- Local Storage
+- CSS
+
+## 📱 Recursos PWA
+
+- Manifest configurado
+- Ícones 192x192 e 512x512
+- Service Worker registrado
+- Instalação da aplicação pelo navegador
+- Funcionamento offline
+- Persistência dos dados mesmo sem conexão com a internet
+
+## 📂 Estrutura do projeto
+
+```text
+app/
+├── globals.css
+├── layout.tsx
+├── manifest.ts
+└── page.tsx
+
+components/
+├── FormularioEntrada.tsx
+├── InstalarPWA.tsx
+└── ListaEntradas.tsx
+
+hooks/
+└── useLocalStorage.ts
+
+types/
+└── Entrada.ts
+
+public/
+├── icons/
+│   ├── icon-192.png
+│   └── icon-512.png
+└── service-worker.js
+```
+
+## ▶️ Como executar o projeto
+
+Clone o repositório:
+
+```bash
+git clone https://github.com/ebac-projects-java/diario-de-bordo.git
+```
+
+Entre na pasta do projeto:
+
+```bash
+cd diario-de-bordo
+```
+
+Instale as dependências:
+
+```bash
+npm install
+```
+
+Execute a aplicação:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Acesse no navegador:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```text
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📖 Objetivo da atividade
 
-## Learn More
+Aplicar os conceitos de Progressive Web Apps (PWA) utilizando Next.js, implementando:
 
-To learn more about Next.js, take a look at the following resources:
+- Registro de atividades diárias;
+- Persistência de dados com Local Storage;
+- Funcionamento offline;
+- Manifest da aplicação;
+- Service Worker;
+- Instalação como aplicativo;
+- Interface responsiva.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 👨‍💻 Autor
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Desenvolvido por **Gustavo Lima**.

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useCallback, useState } from "react";
 
 interface Props {
   adicionarEntrada: (
@@ -17,17 +17,24 @@ export default function FormularioEntrada({
   const [descricao, setDescricao] = useState("");
   const [data, setData] = useState("");
 
-  function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
+  const handleSubmit = useCallback(
+    (e: React.FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
 
-    if (!titulo || !descricao || !data) return;
+      if (!titulo.trim() || !descricao.trim() || !data) return;
 
-    adicionarEntrada(titulo, descricao, data);
+      adicionarEntrada(
+        titulo.trim(),
+        descricao.trim(),
+        data
+      );
 
-    setTitulo("");
-    setDescricao("");
-    setData("");
-  }
+      setTitulo("");
+      setDescricao("");
+      setData("");
+    },
+    [titulo, descricao, data, adicionarEntrada]
+  );
 
   return (
     <form onSubmit={handleSubmit}>

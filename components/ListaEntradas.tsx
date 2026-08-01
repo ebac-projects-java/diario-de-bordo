@@ -1,5 +1,6 @@
 "use client";
 
+import { useCallback } from "react";
 import { Entrada } from "../types/Entrada";
 
 interface Props {
@@ -7,10 +8,17 @@ interface Props {
   removerEntrada: (id: number) => void;
 }
 
-export default function ListaEntradas({
+function ListaEntradas({
   entradas,
   removerEntrada,
 }: Props) {
+  const handleRemover = useCallback(
+    (id: number) => {
+      removerEntrada(id);
+    },
+    [removerEntrada]
+  );
+
   if (entradas.length === 0) {
     return <p>Nenhuma entrada cadastrada.</p>;
   }
@@ -29,7 +37,7 @@ export default function ListaEntradas({
           <br />
 
           <button
-            onClick={() => removerEntrada(entrada.id)}
+            onClick={() => handleRemover(entrada.id)}
           >
             Remover
           </button>
@@ -38,3 +46,5 @@ export default function ListaEntradas({
     </div>
   );
 }
+
+export default ListaEntradas;

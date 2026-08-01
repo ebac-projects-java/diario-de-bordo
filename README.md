@@ -1,117 +1,146 @@
-# Diário de Bordo
+# 📖 Diário de Bordo - Otimização de Performance
 
-Aplicação desenvolvida como atividade prática da EBAC utilizando **Next.js 16** e os conceitos de **Progressive Web App (PWA)**.
+Projeto desenvolvido como atividade prática do curso **Desenvolvedor Full Stack Java** da **EBAC**, com foco na análise e otimização de performance utilizando o Google Lighthouse.
 
-## 🔗 Links
+---
 
-- **Repositório:** https://github.com/ebac-projects-java/diario-de-bordo
+## 📌 Sobre o projeto
 
-## 📋 Descrição
+O **Diário de Bordo** é uma aplicação desenvolvida em **Next.js** que permite ao usuário cadastrar, visualizar e remover anotações pessoais. Os dados são armazenados no navegador utilizando **LocalStorage**, permitindo que as informações permaneçam disponíveis mesmo após o fechamento da aplicação.
 
-O Diário de Bordo é uma aplicação web que permite registrar atividades diárias por meio de título, descrição e data. Os registros são armazenados localmente utilizando **localStorage**, garantindo persistência dos dados mesmo após atualizar a página.
+Este projeto foi utilizado para aplicar técnicas de otimização de performance web utilizando o **Google Lighthouse**, conforme proposto pela atividade da EBAC.
 
-Além disso, o projeto foi configurado como um **Progressive Web App (PWA)**, permitindo instalação no dispositivo, funcionamento offline e uma experiência semelhante à de um aplicativo nativo.
+---
 
-## 🚀 Funcionalidades
+## 🚀 Tecnologias utilizadas
 
-- Criar novas entradas do diário
-- Listar todas as entradas cadastradas
-- Remover entradas
-- Persistência de dados utilizando `localStorage`
-- Funcionamento offline
-- Instalação como aplicativo (PWA)
-- Interface responsiva para dispositivos móveis e desktops
-
-## 🛠️ Tecnologias utilizadas
-
-- Next.js 16
-- React 19
+- Next.js
+- React
 - TypeScript
-- Progressive Web App (PWA)
-- Service Worker
-- Local Storage
 - CSS
+- LocalStorage
+- Lighthouse (Chrome DevTools)
 
-## 📱 Recursos PWA
+---
 
-- Manifest configurado
-- Ícones 192x192 e 512x512
-- Service Worker registrado
-- Instalação da aplicação pelo navegador
-- Funcionamento offline
-- Persistência dos dados mesmo sem conexão com a internet
+# 📊 Análise Inicial
 
-## 📂 Estrutura do projeto
+A análise inicial foi realizada utilizando a ferramenta **Lighthouse** do Google Chrome.
 
-```text
-app/
-├── globals.css
-├── layout.tsx
-├── manifest.ts
-└── page.tsx
+### Resultados
 
-components/
-├── FormularioEntrada.tsx
-├── InstalarPWA.tsx
-└── ListaEntradas.tsx
+| Métrica | Pontuação |
+|----------|----------:|
+| Performance | **98** |
+| Accessibility | **93** |
+| Best Practices | **100** |
+| SEO | **100** |
 
-hooks/
-└── useLocalStorage.ts
+### Gargalos identificados
 
-types/
-└── Entrada.ts
+Apesar da excelente pontuação inicial, foram identificadas algumas oportunidades de melhoria relacionadas à otimização do código:
 
-public/
-├── icons/
-│   ├── icon-192.png
-│   └── icon-512.png
-└── service-worker.js
+- Recriação de funções durante as renderizações dos componentes.
+- Atualização de estado utilizando valores diretos em vez da atualização funcional recomendada pelo React.
+- Pequenas melhorias na organização do CSS.
+- Validação de entrada de dados podendo ser aprimorada.
+
+---
+
+# ⚙️ Melhorias aplicadas
+
+Durante a otimização do projeto foram realizadas as seguintes alterações:
+
+## ✔ Otimização de funções
+
+Foi utilizado **useCallback** para memorizar funções passadas como propriedades para componentes filhos, reduzindo recriações desnecessárias durante as renderizações.
+
+---
+
+## ✔ Atualização funcional do estado
+
+As atualizações de estado passaram a utilizar a forma funcional do React:
+
+```tsx
+setEntradas((prev) => [...prev, novaEntrada]);
 ```
 
-## ▶️ Como executar o projeto
+Essa abordagem evita problemas relacionados a estados desatualizados e segue as boas práticas recomendadas pelo React.
 
-Clone o repositório:
+---
 
-```bash
-git clone https://github.com/ebac-projects-java/diario-de-bordo.git
-```
+## ✔ Validação dos dados
 
-Entre na pasta do projeto:
+Foi adicionada validação utilizando `trim()` para impedir o cadastro de entradas contendo apenas espaços em branco.
 
-```bash
-cd diario-de-bordo
-```
+---
 
-Instale as dependências:
+## ✔ Organização do código
 
-```bash
-npm install
-```
+Foram realizados pequenos ajustes de organização e padronização do código, melhorando sua legibilidade e manutenção.
 
-Execute a aplicação:
+---
 
-```bash
-npm run dev
-```
+## ✔ Ajustes no CSS
 
-Acesse no navegador:
+Pequenas melhorias foram aplicadas ao CSS para tornar o código mais organizado e consistente, mantendo a responsividade da aplicação.
 
-```text
-http://localhost:3000
-```
+---
 
-## 📖 Objetivo da atividade
+# 📈 Resultado Final
 
-Aplicar os conceitos de Progressive Web Apps (PWA) utilizando Next.js, implementando:
+Após as otimizações foi realizada uma nova análise utilizando o Lighthouse.
 
-- Registro de atividades diárias;
-- Persistência de dados com Local Storage;
-- Funcionamento offline;
-- Manifest da aplicação;
-- Service Worker;
-- Instalação como aplicativo;
-- Interface responsiva.
+| Métrica | Antes | Depois |
+|----------|------:|-------:|
+| Performance | **98** | **99** |
+| Accessibility | **93** | **93** |
+| Best Practices | **100** | **100** |
+| SEO | **100** | **100** |
 
-## 👨‍💻 Autor
+Foi possível obter uma melhora na pontuação de **Performance**, mantendo todas as demais métricas com excelente qualidade.
+
+---
+
+# 📷 Relatórios
+
+## Antes
+
+> Inserir aqui o print do Lighthouse antes das otimizações.
+
+![Antes](./docs/antes-lighthouse.png)
+
+---
+
+## Depois
+
+> Inserir aqui o print do Lighthouse após as otimizações.
+
+![Depois](./docs/depois-lighthouse.png)
+
+---
+
+# ✅ Conclusão
+
+As otimizações aplicadas permitiram melhorar a performance da aplicação sem alterar seu funcionamento.
+
+Além da melhora observada na pontuação do Lighthouse, foram adotadas boas práticas recomendadas para aplicações React e Next.js, como redução de recriações de funções, atualização funcional do estado, validação mais robusta dos dados e organização do código.
+
+O resultado foi uma aplicação mais eficiente, mantendo ótima experiência de uso e elevados índices de qualidade nas métricas avaliadas pelo Lighthouse.
+
+---
+
+# 🔗 Repositório
+
+O código-fonte deste projeto está disponível em:
+
+**GitHub:** https://github.com/SEU-USUARIO/SEU-REPOSITORIO
+
+---
+
+# 👨‍💻 Autor
 
 Desenvolvido por **Gustavo Lima**.
+
+- GitHub: https://github.com/ebac-projects-java/diario-de-bordo
+- LinkedIn: https://www.linkedin.com/in/gustavolima-ti/

@@ -2,7 +2,7 @@
 
 Projeto desenvolvido como atividade prática do curso **Desenvolvedor Full Stack Java** da **EBAC**, com foco na análise e otimização de performance utilizando o Google Lighthouse.
 
-
+---
 
 ## 📌 Sobre o projeto
 

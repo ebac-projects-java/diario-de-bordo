@@ -2,7 +2,7 @@
 
 Projeto desenvolvido como atividade prática do curso **Desenvolvedor Full Stack Java** da **EBAC**, com foco na análise e otimização de performance utilizando o Google Lighthouse.
 
----
+
 
 ## 📌 Sobre o projeto
 
@@ -134,7 +134,7 @@ O resultado foi uma aplicação mais eficiente, mantendo ótima experiência de 
 
 O código-fonte deste projeto está disponível em:
 
-**GitHub:** https://github.com/SEU-USUARIO/SEU-REPOSITORIO
+**GitHub:** https://github.com/ebac-projects-java/diario-de-bordo
 
 ---
 
@@ -142,5 +142,5 @@ O código-fonte deste projeto está disponível em:
 
 Desenvolvido por **Gustavo Lima**.
 
-- GitHub: https://github.com/ebac-projects-java/diario-de-bordo
+- GitHub: https://github.com/Limabtw
 - LinkedIn: https://www.linkedin.com/in/gustavolima-ti/
